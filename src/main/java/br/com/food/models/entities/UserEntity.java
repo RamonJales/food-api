@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -19,9 +19,9 @@ public class User {
 	private String phone;
 	private String password;
 	
-	public User() {}
+	public UserEntity() {}
 
-	public User(String name, String email, String phone, String password) {
+	public UserEntity(String name, String email, String phone, String password) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -77,8 +77,9 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		UserEntity other = (UserEntity) obj;
 		return Objects.equals(email, other.email) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
 				&& Objects.equals(password, other.password) && Objects.equals(phone, other.phone);
 	}
+
 }
