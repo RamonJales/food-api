@@ -1,5 +1,6 @@
 package br.com.food.models.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -10,7 +11,10 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_user")
-public class UserEntity {
+public class UserEntity implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
