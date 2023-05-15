@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.food.models.entities.UserEntity;
+import br.com.food.data.vo.v1.UserVO;
 import br.com.food.models.services.UserService;
 
 @RestController
@@ -25,24 +25,24 @@ public class UserController {
 	private UserService service;
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<UserEntity> findAll() {
+	public List<UserVO> findAll() {
 		return service.findAll();
 	}
 	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public UserEntity findById(@PathVariable Integer id) {
+	public UserVO findById(@PathVariable Integer id) {
 		return service.findById(id);
 	}
 	
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public UserEntity save(@RequestBody UserEntity obj) {
+	public UserVO save(@RequestBody UserVO obj) {
 		return service.save(obj);
 	}
 	
 	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public UserEntity update(@PathVariable Integer id, @RequestBody UserEntity obj) {
+	public UserVO update(@PathVariable Integer id, @RequestBody UserVO obj) {
 		return service.update(id, obj);
 	}
 	
